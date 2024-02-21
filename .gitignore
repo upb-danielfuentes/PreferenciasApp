@@ -290,3 +290,7 @@ obj/
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.toptal.com/developers/gitignore/api/android,androidstudio,jetbrains,kotlin
+app/src/main/java/com/example/.DS_Store
+app/src/.DS_Store
+app/src/main/.DS_Store
+.DS_Store
