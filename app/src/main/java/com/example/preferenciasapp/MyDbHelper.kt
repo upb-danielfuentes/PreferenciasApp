@@ -9,7 +9,7 @@ class MyDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nu
 
     companion object {
         const val DATABASE_VERSION = 1
-        const val DATABASE_NAME = "Usuarios.db"
+        const val DATABASE_NAME = "otranueva.db"
         const val TABLE_NAME = "usuarios"
         const val COLUMN_DOCUMENTO = "documento"
         const val COLUMN_NOMBRE = "nombre"
@@ -20,10 +20,10 @@ class MyDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nu
     private val SQL_CREATE_ENTRIES = """
         CREATE TABLE $TABLE_NAME (
         ${BaseColumns._ID} INTEGER PRIMARY KEY,
-        $COLUMN_DOCUMENTO TEXT,
-        $COLUMN_NOMBRE TEXT,
-        $COLUMN_CLAVE1 TEXT,
-        $COLUMN_CLAVE2 TEXT)
+        $COLUMN_DOCUMENTO TEXT UNIQUE NOT NULL,
+        $COLUMN_NOMBRE TEXT NOT NULL,
+        $COLUMN_CLAVE1 TEXT NOT NULL,
+        $COLUMN_CLAVE2 TEXT NOT NULL)
     """.trimIndent()
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -31,6 +31,7 @@ class MyDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nu
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+        db.execSQL("DROP TABLE IF EXISTS $TABLE_NAME")
         onCreate(db)
     }
 }
