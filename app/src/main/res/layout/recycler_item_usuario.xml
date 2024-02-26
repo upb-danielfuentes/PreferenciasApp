@@ -10,6 +10,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Documento"
+        android:textColor="#333"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@id/tvNombre"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,9 +23,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="Nombre"
+        android:textColor="#333"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvDocumento"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Añade más TextViews según necesites para mostrar el resto de la información -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
